@@ -1,0 +1,137 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/3596794-18f91f7c1e"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"transaction\":{\"customer\":{\"ip\":null,\"email\":null,\"device_id\":null,\"birth_date\":null},\"credit_card\":{\"holder\":\"John Doe\",\"stamp\":\"b3839d334ba40e89168d60cd9f9d1390aee3fe67dd4d5c41adbf3998043eaef8\",\"brand\":\"visa\",\"last_4\":\"0000\",\"first_1\":\"4\",\"token\":\"11111111-1111-1111-1111-111111111111\",\"bin\":\"420000\",\"issuer_country\":\"US\",\"issuer_name\":\"JPMORGAN CHASE BANK, N.A.\",\"product\":null,\"exp_month\":1,\"exp_year\":2019},\"billing_address\":{\"first_name\":null,\"last_name\":null,\"address\":null,\"country\":null,\"city\":null,\"zip\":null,\"state\":null,\"phone\":null},\"additional_data\":{},\"be_protected_verification\":{\"status\":\"successful\",\"white_black_list\":{\"email\":\"absent\",\"ip\":\"absent\",\"card_number\":\"absent\"},\"rules\":{\"9_2150_eventsme.by\":{},\"9_Тюхтяев Павел\":{},\"bePaid\":{}}},\"payment\":{\"auth_code\":\"654321\",\"bank_code\":\"05\",\"rrn\":\"999\",\"ref_id\":\"777888\",\"message\":\"Payment was approved\",\"billing_descriptor\":\"test descriptor\",\"gateway_id\":5828,\"status\":\"successful\"},\"uid\":\"3596794-18f91f7c1e\",\"status\":\"successful\",\"amount\":100,\"currency\":\"BYN\",\"description\":\"Valid\",\"type\":\"payment\",\"payment_method_type\":\"credit_card\",\"tracking_id\":\"2Vn0NDm5bEVA0Ws6rzTv2Kt1XEKqaR7h\",\"message\":\"Successfully processed\",\"test\":true,\"created_at\":\"2018-01-19T12:45:11.284Z\",\"updated_at\":\"2018-01-19T12:45:18.395Z\",\"paid_at\":\"2018-01-19T12:45:18.386Z\",\"expired_at\":null,\"closed_at\":null,\"settled_at\":null,\"language\":\"ru\",\"id\":\"3596794-18f91f7c1e\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 12:46:56 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "1430",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "Status": "200 OK",
+        "X-Request-Id": "baf27e7c-abba-4675-9399-c03e6d8dd1ec",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"tracking_id\":\"a6sVUvRyFTK4pKAyqcuyKw5vl7LVsgmr\",\"return_url\":null,\"notification_url\":null,\"language\":\"ru\",\"description\":\"Valid\",\"customer\":{},\"currency\":\"BYN\",\"credit_card\":{\"token\":\"11111111-1111-1111-1111-111111111111\",\"skip_three_d_secure_verification\":true},\"amount\":10,\"additional_data\":{}}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/authorizations"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"transaction\":{\"customer\":{\"ip\":null,\"email\":null,\"device_id\":null,\"birth_date\":null},\"credit_card\":{\"holder\":\"John Doe\",\"stamp\":\"b3839d334ba40e89168d60cd9f9d1390aee3fe67dd4d5c41adbf3998043eaef8\",\"brand\":\"visa\",\"last_4\":\"0000\",\"first_1\":\"4\",\"token\":\"11111111-1111-1111-1111-111111111111\",\"bin\":\"420000\",\"issuer_country\":\"US\",\"issuer_name\":\"JPMORGAN CHASE BANK, N.A.\",\"product\":null,\"exp_month\":1,\"exp_year\":2019},\"billing_address\":{\"first_name\":null,\"last_name\":null,\"address\":null,\"country\":null,\"city\":null,\"zip\":null,\"state\":null,\"phone\":null},\"additional_data\":{},\"be_protected_verification\":{\"status\":\"successful\",\"white_black_list\":{\"email\":\"absent\",\"ip\":\"absent\",\"card_number\":\"absent\"},\"rules\":{\"9_2150_eventsme.by\":{},\"9_Тюхтяев Павел\":{},\"bePaid\":{}}},\"authorization\":{\"auth_code\":\"654321\",\"bank_code\":\"05\",\"rrn\":\"999\",\"ref_id\":\"777888\",\"message\":\"Authorization was approved\",\"billing_descriptor\":\"test descriptor\",\"gateway_id\":5828,\"status\":\"successful\"},\"uid\":\"3596682-d0c9c1f588\",\"status\":\"successful\",\"amount\":10,\"currency\":\"BYN\",\"description\":\"Valid\",\"type\":\"authorization\",\"payment_method_type\":\"credit_card\",\"tracking_id\":\"a6sVUvRyFTK4pKAyqcuyKw5vl7LVsgmr\",\"message\":\"Successfully processed\",\"test\":true,\"created_at\":\"2018-01-19T12:40:40.684Z\",\"updated_at\":\"2018-01-19T12:40:44.791Z\",\"paid_at\":\"2018-01-19T12:40:44.781+00:00\",\"expired_at\":null,\"closed_at\":null,\"settled_at\":null,\"language\":\"ru\",\"id\":\"3596682-d0c9c1f588\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 12:40:44 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "1452",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "Status": "200 OK",
+        "X-Request-Id": "d8c4f818-22fd-45e1-9723-30102f9cb5bc",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"tracking_id\":\"2Vn0NDm5bEVA0Ws6rzTv2Kt1XEKqaR7h\",\"return_url\":null,\"notification_url\":null,\"language\":\"ru\",\"description\":\"Valid\",\"customer\":{},\"currency\":\"BYN\",\"credit_card\":{\"token\":\"11111111-1111-1111-1111-111111111111\",\"skip_three_d_secure_verification\":true},\"amount\":100,\"additional_data\":{}}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/payments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"transaction\":{\"customer\":{\"ip\":null,\"email\":null,\"device_id\":null,\"birth_date\":null},\"credit_card\":{\"holder\":\"John Doe\",\"stamp\":\"b3839d334ba40e89168d60cd9f9d1390aee3fe67dd4d5c41adbf3998043eaef8\",\"brand\":\"visa\",\"last_4\":\"0000\",\"first_1\":\"4\",\"token\":\"11111111-1111-1111-1111-111111111111\",\"bin\":\"420000\",\"issuer_country\":\"US\",\"issuer_name\":\"JPMORGAN CHASE BANK, N.A.\",\"product\":null,\"exp_month\":1,\"exp_year\":2019},\"billing_address\":{\"first_name\":null,\"last_name\":null,\"address\":null,\"country\":null,\"city\":null,\"zip\":null,\"state\":null,\"phone\":null},\"additional_data\":{},\"be_protected_verification\":{\"status\":\"successful\",\"white_black_list\":{\"email\":\"absent\",\"ip\":\"absent\",\"card_number\":\"absent\"},\"rules\":{\"9_2150_eventsme.by\":{},\"9_Тюхтяев Павел\":{},\"bePaid\":{}}},\"payment\":{\"auth_code\":\"654321\",\"bank_code\":\"05\",\"rrn\":\"999\",\"ref_id\":\"777888\",\"message\":\"Payment was approved\",\"billing_descriptor\":\"test descriptor\",\"gateway_id\":5828,\"status\":\"successful\"},\"uid\":\"3596794-18f91f7c1e\",\"status\":\"successful\",\"amount\":100,\"currency\":\"BYN\",\"description\":\"Valid\",\"type\":\"payment\",\"payment_method_type\":\"credit_card\",\"tracking_id\":\"2Vn0NDm5bEVA0Ws6rzTv2Kt1XEKqaR7h\",\"message\":\"Successfully processed\",\"test\":true,\"created_at\":\"2018-01-19T12:45:11.284Z\",\"updated_at\":\"2018-01-19T12:45:18.395Z\",\"paid_at\":\"2018-01-19T12:45:18.386+00:00\",\"expired_at\":null,\"closed_at\":null,\"settled_at\":null,\"language\":\"ru\",\"id\":\"3596794-18f91f7c1e\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 12:45:18 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "1435",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "Status": "200 OK",
+        "X-Request-Id": "57aeaa95-e807-43d9-85d7-dcf2d5d77d6d",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"parent_uid\":\"3596682-d0c9c1f588\",\"amount\":10}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/voids"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"transaction\":{\"additional_data\":{},\"be_protected_verification\":{\"status\":\"successful\",\"rules\":{\"9_2150_eventsme.by\":{},\"9_Тюхтяев Павел\":{},\"bePaid\":{}}},\"void\":{\"message\":\"Void was approved\",\"ref_id\":\"8889913\",\"rrn\":null,\"auth_code\":null,\"gateway_id\":5828,\"status\":\"successful\"},\"uid\":\"3596739-1617e2b6d6\",\"status\":\"successful\",\"amount\":10,\"currency\":\"BYN\",\"type\":\"void\",\"message\":\"Successfully processed\",\"test\":true,\"created_at\":\"2018-01-19T12:43:10.115Z\",\"updated_at\":\"2018-01-19T12:43:14.208Z\",\"paid_at\":\"2018-01-19T12:43:14.196+00:00\",\"parent_uid\":\"3596682-d0c9c1f588\",\"id\":\"3596739-1617e2b6d6\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 12:43:14 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "616",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "Status": "200 OK",
+        "X-Request-Id": "6fff0b19-d8e5-44c1-b700-408e64779f74",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

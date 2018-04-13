@@ -1,0 +1,200 @@
+[
+  {
+    "request": {
+      "body": "{\"request\":{\"tracking_id\":\"CQbgIM3jDSOXF1CFzxR7oV0FZbyAAL4O\",\"return_url\":null,\"notification_url\":null,\"language\":\"ru\",\"description\":\"Valid\",\"customer\":{},\"currency\":\"BYN\",\"credit_card\":{\"token\":\"11111111-1111-1111-1111-111111111111\",\"skip_three_d_secure_verification\":true},\"amount\":10,\"additional_data\":{}}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/authorizations"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Token does not exist.\",\"errors\":{\"credit_card\":{\"token\":[\"does not exist\"]}}}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:21:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "102",
+        "Connection": "keep-alive",
+        "Status": "400 Bad Request",
+        "X-Request-Id": "87c096b7-2483-4534-9aea-abb66adbcb3c",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"parent_uid\":\"1111111-1111111111\",\"amount\":10}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/voids"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Parent uid Parent transaction is not found.\",\"errors\":{\"parent_uid\":[\"Parent transaction is not found\"]}}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:42:19 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "130",
+        "Connection": "keep-alive",
+        "Status": "400 Bad Request",
+        "X-Request-Id": "4022d3da-3ae4-4b3a-b481-056b985123c9",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"parent_uid\":\"1111111-1111111111\",\"amount\":10}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/voids"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Parent uid Parent transaction is not found.\",\"errors\":{\"parent_uid\":[\"Parent transaction is not found\"]}}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:43:36 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "130",
+        "Connection": "keep-alive",
+        "Status": "400 Bad Request",
+        "X-Request-Id": "cc2d74c5-c53b-4791-904c-24372e0805cc",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/3596794-18f91f7c11"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Record not found\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:48:05 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "43",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "Status": "404 Not Found",
+        "X-Request-Id": "5dae3ee3-b7b3-4ccc-be2f-ddaf8387f026",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"parent_uid\":\"1111111-1111111111\",\"amount\":10}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/voids"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Parent uid Parent transaction is not found.\",\"errors\":{\"parent_uid\":[\"Parent transaction is not found\"]}}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:46:42 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "130",
+        "Connection": "keep-alive",
+        "Status": "400 Bad Request",
+        "X-Request-Id": "add85c61-73f9-45f5-abf5-b8036b819e0b",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"request\":{\"tracking_id\":\"Rajnw27vveb56h8CLiPMAjuHjY0oQmQN\",\"return_url\":null,\"notification_url\":null,\"language\":\"ru\",\"description\":\"Valid\",\"customer\":{},\"currency\":\"BYN\",\"credit_card\":{\"token\":\"11111111-1111-1111-1111-111111111111\",\"skip_three_d_secure_verification\":true},\"amount\":100,\"additional_data\":{}}}",
+      "headers": {
+        "Content-type": "application/json",
+        "Authorization": "Basic ***REMOVED***",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 50000,
+        "connect_timeout": 50000
+      },
+      "request_body": "",
+      "url": "https://gateway.bepaid.by/transactions/payments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"response\":{\"message\":\"Token does not exist.\",\"errors\":{\"credit_card\":{\"token\":[\"does not exist\"]}}}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Fri, 19 Jan 2018 13:52:12 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "102",
+        "Connection": "keep-alive",
+        "Status": "400 Bad Request",
+        "X-Request-Id": "55ab7b24-c307-4084-b033-e75d72b137c8",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]
