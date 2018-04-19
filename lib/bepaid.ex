@@ -1,4 +1,6 @@
 defmodule Bepaid do
+  use Application
+
   defmodule Error do
     @moduledoc """
     Defines an exception for Bepaid errors.
@@ -6,12 +8,13 @@ defmodule Bepaid do
     defexception [:message]
   end
 
-  def start_link do
+
+  def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
     children = []
 
     opts = [strategy: :one_for_one, name: Bepaid.Supervisor]
-    {:ok, _pid} =  Supervisor.start_link(children, opts)
+    Supervisor.start_link(children, opts)
   end
 end
