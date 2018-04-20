@@ -24,7 +24,12 @@ defmodule Bepaid.Mixfile do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:httpoison, "~> 0.13"}]
+    [
+      {:httpoison, "~> 0.13"},
+      {:poison, "~> 3.1"},
+      {:exvcr, "~> 0.10", only: :test},
+      {:nanoid, "~> 1.0.1"}
+    ]
   end
 
   defp description do
