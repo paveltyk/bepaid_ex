@@ -7,8 +7,8 @@ defmodule Bepaid.Gateway do
   alias Bepaid.Payment
   alias HTTPoison.Response
 
-  @shop_id Application.get_env(:bepaid, :shop_id)
-  @key_secret Application.get_env(:bepaid, :key_secret)
+  @shop_id Application.get_env(:bepaid_ex, :shop_id)
+  @key_secret Application.get_env(:bepaid_ex, :key_secret)
   @base_url "https://gateway.bepaid.by/transactions/"
 
   def put_authorization(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("authorizations")
@@ -50,7 +50,6 @@ defmodule Bepaid.Gateway do
   defp headers_for(:get), do: [auth_header(), {"Accept", "application/json"}]
   defp auth_header, do: {"Authorization", "Basic " <> Base.encode64("#{get_env_var(@shop_id)}:#{get_env_var(@key_secret)}")}
 
-  defp get_env_var({:system, env_var}), do: System.get_env(env_var)
   defp get_env_var(binary) when is_binary(binary), do: binary
   defp get_env_var(integer) when is_integer(integer), do: integer
 

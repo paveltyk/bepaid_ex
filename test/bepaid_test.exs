@@ -87,7 +87,7 @@ defmodule BepaidTest do
     end
   end
 
-  describe "Gateway.get_charge" do
+  describe "Gateway.get_transaction" do
     test "success" do
       use_cassette "success" do
         {:ok, %{"transaction" => transaction}} = Gateway.get_transaction("3596794-18f91f7c1e")

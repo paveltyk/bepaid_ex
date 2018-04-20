@@ -1,6 +1,6 @@
-# Bepaid Elixir Library
+# BePaid Elixir Library
 
-The Bepaid Elixir library provides convenient access to the bePaid API from applications written in the Elixir language.
+The BePaid Elixir library provides convenient access to the [bePaid API](https://docs.bepaid.by/en/introduction) from applications written in the Elixir language.
 
 ## Installation
 
@@ -15,6 +15,21 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/bepaid](https://hexdocs.pm/bepaid).
+## Configuration
+
+BePaid requires certain properties to be configured:
+
+```elixir
+config :bepaid_ex,
+  shop_id: "BEPAID_SHOP_ID",
+  key_secret: "BEPAID_KEY_SECRET",
+  key_public: "BEPAID_KEY_PUBLIC"
+```
+
+Add :bepaid_ex to your applications list
+
+```elixir
+def application do
+  [applications: [:bepaid_ex]]
+end
+```
