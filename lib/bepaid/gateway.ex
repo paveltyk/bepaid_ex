@@ -7,16 +7,24 @@ defmodule Bepaid.Gateway do
   alias Bepaid.Payment
   alias HTTPoison.Response
 
+  @behaviour Bepaid.GatewayBehaviour
+
   @shop_id Application.get_env(:bepaid_ex, :shop_id)
   @key_secret Application.get_env(:bepaid_ex, :key_secret)
   @base_url "https://gateway.bepaid.by/transactions/"
 
   def put_authorization(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("authorizations")
-  def put_charge(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("payments")
+
   def void_authorization(uid, amount), do: %{parent_uid: uid, amount: amount} |> post_request("voids")
+
+  def put_charge(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("payments")
+
   def get_transaction(uid), do: exec(:get, uid, nil)
-  def put_refund(uid, amount, reason \\ "Возврат средств"),
-    do: %{parent_uid: uid, amount: amount, reason: reason} |> post_request("refunds")
+
+  def put_refund(uid, amount, reason \\ "Возврат средств") do
+    %{parent_uid: uid, amount: amount, reason: reason}
+    |> post_request("refunds")
+  end
   def put_refund(%{} = data), do: post_request(data, "refunds")
 
   @doc """
