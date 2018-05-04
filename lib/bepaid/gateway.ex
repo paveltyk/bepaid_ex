@@ -58,6 +58,7 @@ defmodule Bepaid.Gateway do
   defp headers_for(:get), do: [auth_header(), {"Accept", "application/json"}]
   defp auth_header, do: {"Authorization", "Basic " <> Base.encode64("#{get_env_var(@shop_id)}:#{get_env_var(@key_secret)}")}
 
+  defp get_env_var({:system, env_var}), do: System.get_env(env_var)
   defp get_env_var(binary) when is_binary(binary), do: binary
   defp get_env_var(integer) when is_integer(integer), do: integer
 

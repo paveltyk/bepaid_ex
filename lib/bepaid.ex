@@ -15,6 +15,6 @@ defmodule Bepaid do
     children = []
 
     opts = [strategy: :one_for_one, name: Bepaid.Supervisor]
-    Supervisor.start_link(children, opts)
+    {:ok, _pid} = Supervisor.start_link(children, opts)
   end
 end
