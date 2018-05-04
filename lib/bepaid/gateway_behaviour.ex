@@ -7,31 +7,13 @@ defmodule Bepaid.GatewayBehaviour do
 
   @type http_response :: {:ok, map} | {:error, any}
 
-  @doc """
-  """
   @callback put_authorization(Payment.t) :: http_response
-
-  @doc """
-  """
-  @callback void_authorization(Payment.t) :: http_response
-
-  @doc """
-  """
+  @callback void_authorization(uid :: any, amount :: any) :: http_response
   @callback get_transaction(String.t) :: http_response
-
-  @doc """
-  """
-  @callback put_refund() :: http_response
-
-  @doc """
-  """
-  @callback post_request(Payment.t) :: http_response
-
-  @doc """
-  """
+  @callback put_refund(map) :: http_response
+  @callback put_refund(uid :: any, amount :: any, reason :: String.t) :: http_response
+  @callback post_request(data :: any, url :: any) :: http_response
   @callback put_charge(Payment.t) :: http_response
-
-  @doc """
-  """
-  @callback exec(any) :: http_response
+  @callback exec(atom, url :: any, params :: any) :: http_response
+  @callback exec(url :: any, params :: any) :: http_response
 end

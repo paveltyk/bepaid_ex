@@ -1,6 +1,6 @@
-# BePaid Elixir Library
+# Bepaid Elixir Library
 
-The BePaid Elixir library provides convenient access to the [bePaid API](https://docs.bepaid.by/en/introduction) from applications written in the Elixir language.
+The Bepaid Elixir library provides convenient access to the [bePaid API](https://docs.bepaid.by/en/introduction) from applications written in the Elixir language.
 
 ## Installation
 
@@ -17,7 +17,7 @@ end
 
 ## Configuration
 
-BePaid requires certain properties to be configured:
+Bepaid requires certain properties to be configured:
 
 ```elixir
 config :bepaid_ex,
