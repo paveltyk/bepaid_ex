@@ -1,26 +1,56 @@
 defmodule Bepaid.Gateway do
   @moduledoc """
-  bePaid API client: https://docs.bepaid.by/ru/introduction
+  Utility module for the [bePaid API](https://docs.bepaid.by/ru/introduction)
+
+  Provides API wrapper functions for remote API.
+
+  ## Examples:
+
+      iex> {"uid" => uid} = Gateway.put_authorization(%Payment{amount: 10})
+      %{...}
+      iex> Gateway.void_authorization(uid, 10)
+      %{...}
+      iex> {"uid" => uid} = Gateway.put_charge(%Payment{amount: 10})
+      %{...}
+
   """
-
-  use HTTPoison.Base
-  alias Bepaid.Payment
-  alias HTTPoison.Response
-
   @behaviour Bepaid.GatewayBehaviour
 
-  @shop_id Application.get_env(:bepaid_ex, :shop_id)
-  @key_secret Application.get_env(:bepaid_ex, :key_secret)
-  @base_url "https://gateway.bepaid.by/transactions/"
+  alias Bepaid.{HttpClient, Payment}
 
+  @doc """
+  Put authorization: https://docs.bepaid.by/ru/beyag/transactions/authorization
+
+  Accepts `Payment` struct with credit card and customer info.
+  """
   def put_authorization(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("authorizations")
 
+  @doc """
+  Void authorization: https://docs.bepaid.by/ru/gateway/transactions/void
+
+  Accepts UID of authorization transaction and amount in cents.
+  """
   def void_authorization(uid, amount), do: %{parent_uid: uid, amount: amount} |> post_request("voids")
 
+  @doc """
+  Put charge: https://docs.bepaid.by/ru/gateway/transactions/payment
+
+  Accepts `Payment` struct with credit card and customer info.
+  """
   def put_charge(%Payment{} = payment), do: Map.from_struct(payment) |> post_request("payments")
 
+  @doc """
+  Load transaction: https://docs.bepaid.by/ru/gateway/transactions/query
+
+  Accepts UID of payment or authorization transaction.
+  """
   def get_transaction(uid), do: exec(:get, uid, nil)
 
+  @doc """
+  Put refund: https://docs.bepaid.by/ru/gateway/transactions/refund
+
+  Accepts UID of transaction, amount in cents and reason (optionally).
+  """
   def put_refund(uid, amount, reason \\ "Возврат средств") do
     %{parent_uid: uid, amount: amount, reason: reason}
     |> post_request("refunds")
@@ -28,60 +58,17 @@ defmodule Bepaid.Gateway do
   def put_refund(%{} = data), do: post_request(data, "refunds")
 
   @doc """
-  Wrapper for exec(:post, url, params). More handy for piping
+  Wrapper for exec(:post, url, params). Handy for piping.
   """
   def post_request(data, url), do: exec(:post, url, %{request: data})
 
   @doc """
-  Executes API request.
-  Returns {:ok, data} or {:error, error, data}
+  Executes API request to bePaid API server. Accepts `:get` or `:post` atom as a first argument.
+
+  Returns `{:ok, data}` or `{:error, error, data}`.
   """
-  def exec(:post, url, params), do: post(url, Poison.encode!(params)) |> parse_response
-  def exec(:get, url, nil), do: get(url) |> parse_response
-  def exec(:get, url, params) when is_map(params), do: get(url, [], params: params) |> parse_response
-  def exec(url, params), do: exec(:post, url, params) |> parse_response
-
-
-  # Seems bePaid updated their API, and this case no longer valid
-  # defp parse_response({:ok, %Response{body: %{"transaction" => %{"status" => "failed", "authorization" => %{"status" => "incomplete"}}} = body}}),
-  #   do: {:incomplete, body}
-  defp parse_response({:ok, %Response{body: %{"transaction" =>
-    %{"status" => "failed", "three_d_secure_verification" => %{"status" => "failed"}}}}}),
-    do: {:error, "3-D Secure verification failed"}
-  defp parse_response({:ok, %Response{body: %{"transaction" => %{"status" => "failed", "message" => err}}}}),
-    do: {:error, err}
-  defp parse_response({:ok, %Response{body: body, status_code: status}}) when status <300, do: {:ok, body}
-  defp parse_response({:ok, %Response{body: body}}), do: {:error, body}
-  defp parse_response(resp), do: resp
-
-  defp headers_for(:post), do: Enum.into(headers_for(:get), [{"Content-Type", "application/json"}])
-  defp headers_for(:get), do: [auth_header(), {"Accept", "application/json"}]
-  defp auth_header, do: {"Authorization", "Basic " <> Base.encode64("#{get_env_var(@shop_id)}:#{get_env_var(@key_secret)}")}
-
-  defp get_env_var({:system, env_var}), do: System.get_env(env_var)
-  defp get_env_var(binary) when is_binary(binary), do: binary
-  defp get_env_var(integer) when is_integer(integer), do: integer
-
-  # HTTPoison function extends
-  def request(method, url, body \\ "", headers \\ [], options \\ []) do
-    options = Keyword.merge([timeout: 50_000, recv_timeout: 50_000], options)
-    headers = Enum.into(headers_for(method), headers)
-    super(method, url, body, headers, options)
-  end
-
-  defp process_url(url) do
-    cond do
-      url =~ ~r/^https?:/ -> url
-      true -> @base_url <> url
-    end
-  end
-
-  defp process_response_body(body) do
-    case Poison.decode(body) do
-      {:ok, body} -> body
-      error ->
-        IO.inspect "Failed to parse bePaid response: #{body}"
-        error
-    end
-  end
+  def exec(:post, url, params), do: HttpClient.post(url, Poison.encode!(params)) |> HttpClient.parse_response()
+  def exec(:get, url, nil), do: HttpClient.get(url) |> HttpClient.parse_response()
+  def exec(:get, url, params) when is_map(params), do: HttpClient.get(url, [], params: params) |> HttpClient.parse_response()
+  def exec(url, params), do: exec(:post, url, params) |> HttpClient.parse_response()
 end

@@ -1,6 +1,6 @@
 defmodule Bepaid.GatewayBehaviour do
   @moduledoc """
-  Interface for Gateway. Could be used for defining your own module for testing
+  Interface for Bepaid.Gateway. Could be used for defining your own module for testing.
   """
 
   alias Bepaid.Payment
