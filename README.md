@@ -1,5 +1,9 @@
 # BepaidEx - Elixir Library for bePaid payment processing gateway
 
+[![CircleCI](https://circleci.com/gh/PavelTyk/bepaid_ex/tree/master.svg?style=shield)](https://circleci.com/gh/PavelTyk/bepaid_ex/tree/master)
+[![Hex.pm](https://img.shields.io/librariesio/release/hex/bepaid_ex/0.9.0.svg)](https://hex.pm/packages/bepaid_ex)
+[![Hex.pm](https://img.shields.io/hexpm/v/bepaid_ex.svg)](https://hex.pm/packages/bepaid_ex)
+
 The BepaidEx Elixir library provides convenient access to the [bePaid API](https://docs.bepaid.by/en/introduction) from applications written in the Elixir language.
 
 ## Installation
@@ -62,7 +66,7 @@ alias Bepaid.{Gateway, Payment}
 
 Parameterize is released under [MIT][3] license.
 
-[1]: https://hexdocs.pm/bepaid_ex/BepaidEx.html
+[1]: https://hexdocs.pm/bepaid_ex/Bepaid.Gateway.html
 
 [2]: https://hex.pm/packages/bepaid_ex
 
