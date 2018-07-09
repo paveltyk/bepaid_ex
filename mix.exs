@@ -4,7 +4,7 @@ defmodule Bepaid.Mixfile do
   def project do
     [
       app: :bepaid_ex,
-      version: "0.9.0",
+      version: "0.9.1",
       elixir: "~> 1.5",
       deps: deps(),
 
